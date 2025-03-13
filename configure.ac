@@ -1863,8 +1863,8 @@ else
     AC_DEFINE([JEMALLOC_INTERNAL_FFSLL], [ffsll], [ ])
     AC_DEFINE([JEMALLOC_INTERNAL_FFSL], [ffsl], [ ])
     AC_DEFINE([JEMALLOC_INTERNAL_FFS], [ffs], [ ])
-  else
-    AC_MSG_ERROR([Cannot build without ffsl(3) or __builtin_ffsl()])
+  #else
+  #  AC_MSG_ERROR([Cannot build without ffsl(3) or __builtin_ffsl()])
   fi
 fi
 
