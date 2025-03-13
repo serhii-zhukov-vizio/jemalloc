@@ -47,11 +47,11 @@
  * Pure convenience, so that we don't have to type "atomic_memory_order_"
  * quite so often.
  */
-#define ATOMIC_RELAXED atomic_memory_order_relaxed
-#define ATOMIC_ACQUIRE atomic_memory_order_acquire
-#define ATOMIC_RELEASE atomic_memory_order_release
-#define ATOMIC_ACQ_REL atomic_memory_order_acq_rel
-#define ATOMIC_SEQ_CST atomic_memory_order_seq_cst
+#define ATOMIC_RELAXED memory_order_relaxed
+#define ATOMIC_ACQUIRE std::memory_order_acquire
+#define ATOMIC_RELEASE std::memory_order_release
+#define ATOMIC_ACQ_REL 	std::memory_order_acq_rel
+#define ATOMIC_SEQ_CST std::memory_order_seq_cst
 
 /*
  * Another convenience -- simple atomic helper functions.
