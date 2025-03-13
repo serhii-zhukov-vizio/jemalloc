@@ -1478,17 +1478,21 @@ fi,
   LUNWIND="-lunwind"
 )
 if test "x$backtrace_method" = "x" -a "x$enable_prof_libunwind" = "x1" ; then
-  AC_CHECK_HEADERS([libunwind.h], , [enable_prof_libunwind="0"])
-  if test "x$LUNWIND" = "x-lunwind" ; then
-    AC_CHECK_LIB([unwind], [unw_backtrace], [JE_APPEND_VS(LIBS, $LUNWIND)],
-                 [enable_prof_libunwind="0"])
-  else
-    JE_APPEND_VS(LIBS, $LUNWIND)
-  fi
-  if test "x${enable_prof_libunwind}" = "x1" ; then
-    backtrace_method="libunwind"
-    AC_DEFINE([JEMALLOC_PROF_LIBUNWIND], [ ], [ ])
-  fi
+ # AC_CHECK_HEADERS([libunwind.h], , [enable_prof_libunwind="0"])
+ # if test "x$LUNWIND" = "x-lunwind" ; then
+ #   AC_CHECK_LIB([unwind], [unw_backtrace], [JE_APPEND_VS(LIBS, $LUNWIND)],
+ #                [enable_prof_libunwind="0"])
+ # else
+ #   JE_APPEND_VS(LIBS, $LUNWIND)
+ # fi
+ # if test "x${enable_prof_libunwind}" = "x1" ; then
+ #   backtrace_method="libunwind"
+ #   AC_DEFINE([JEMALLOC_PROF_LIBUNWIND], [ ], [ ])
+ # fi
+
+  backtrace_method="libunwind"
+  AC_DEFINE([JEMALLOC_PROF_LIBUNWIND], [ ], [ ])
+  JE_APPEND_VS(LIBS, $LUNWIND)
 fi
 
 if test `uname -s` = "Linux"
