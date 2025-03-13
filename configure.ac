@@ -1844,8 +1844,6 @@ JE_COMPILABLE([a program using __builtin_ffsl], [
 #include <string.h>
 ], [
 	{
-		int rv = __builtin_ffsl(0x08);
-		printf("%d\n", rv);
 	}
 ], [je_cv_gcc_builtin_ffsl])
 if test "x${je_cv_gcc_builtin_ffsl}" = "xyes" ; then
@@ -1859,8 +1857,6 @@ else
   #include <string.h>
   ], [
 	{
-		int rv = ffsl(0x08);
-		printf("%d\n", rv);
 	}
   ], [je_cv_function_ffsl])
   if test "x${je_cv_function_ffsl}" = "xyes" ; then
@@ -1878,8 +1874,6 @@ JE_COMPILABLE([a program using __builtin_popcountl], [
 #include <string.h>
 ], [
 	{
-		int rv = __builtin_popcountl(0x08);
-		printf("%d\n", rv);
 	}
 ], [je_cv_gcc_builtin_popcountl])
 if test "x${je_cv_gcc_builtin_popcountl}" = "xyes" ; then
